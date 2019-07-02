@@ -1,0 +1,22 @@
+
+
+{
+    "usersList": [ 
+        {
+            "id": 1,
+            "name" : "Juan",
+            "age": 18,
+            "gender": "male",
+            "ocupation" : "rocket man"
+        },
+
+        {
+            "id": 2,
+            "name" : "Armando",
+            "age": 25,
+            "gender": "male",
+            "ocupation" : "Cheff"
+        }
+
+    ]
+}
