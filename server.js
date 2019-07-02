@@ -1,23 +1,23 @@
 const express = require('express');
 const app = express();
 const port = 8000;
-const db = require('./db.json')
+const db = require('./db.json');
 
 //Se levanta el puerto con esto
 app.listen(port, function(){
-    console.log(`Inicializado en el puerto ${port}`)
-    console.log(`http://localhost:${port}`)
+    console.log(`Inicializado en el puerto ${port}`);
+    console.log(`http://localhost:${port}`);
 })
 
 //Manejar las peticiones
 
 //app.use(respuesta)
 
-app.use(express.json())
-//app.get('/', getUserInfo) //Trae algo
-app.get('/:id', getSingleUser)
-app.post('/', createUser)
-app.put('/:id', editUserInfo)
+app.use(express.json());
+app.get('/', getUserInfo) //Trae algo
+app.get('/:id', getSingleUser);
+app.post('/', createUser);
+app.put('/:id', editUserInfo);
 app.delete('/:id', deleteUser);
 
 /*
@@ -45,10 +45,10 @@ function getSingleUser(request, response){
     response.send(sendingUser);
 }
 
-/*
+
 function getUserInfo(request, response){
     response.send(db);
-}*/
+}
 
 function editUserInfo(request, response){
     const id = request.params.id;
@@ -89,19 +89,25 @@ function editUserInfo(request, response){
 function createUser(request, response){
     //TODO Hacer que el ID no se repitan *
     const newUser = request.body.user;
+    let dataBaseSize = 10;
+    const warningMessage = ["Se ha llegado al límite de usuarios"];
 
-    newUser.id = Math.floor(Math.random()*10);
-
-    for(let i = 0; i < db.usersList.length; i ++){
-        if(db.usersList[i].id == newUser.id){
-            newUser.id = Math.floor(Math.random()*20.99);
-            i = 0;
+    if(dataBaseSize == db.usersList.length){
+        response.send(warningMessage);
+    } else {
+        newUser.id = Math.floor(Math.random()*dataBaseSize);
+    
+        for(let i = 0; i < db.usersList.length; i ++){
+            if(db.usersList[i].id == newUser.id){
+                newUser.id = Math.floor(Math.random()*(dataBaseSize + .999));
+                i = 0;
+            }
         }
+    
+        db.usersList.push(newUser);
+        response.send(db);
     }
 
-    
-    db.usersList.push(newUser);
-    response.send(db);
 }
 
 function deleteUser(request, response){

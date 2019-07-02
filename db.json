@@ -16,6 +16,46 @@
             "age": 25,
             "gender": "male",
             "ocupation" : "Cheff"
+        },
+
+        {
+            "id": 7,
+            "name" : "Minerva",
+            "age": 19,
+            "gender": "male",
+            "ocupation" : "Student"
+        },
+
+        {
+            "id": 9,
+            "name" : "Ajax",
+            "age": 35,
+            "gender": "male",
+            "ocupation" : "Villian from Deadpool"
+        },
+
+        {
+            "id": 5,
+            "name" : "Deadpool",
+            "age": 30,
+            "gender": "male",
+            "ocupation" : "Anti hero"
+        },
+
+        {
+            "id": 4,
+            "name" : "Albert Einstein",
+            "age": 55,
+            "gender": "male",
+            "ocupation" : "Physicist genius"
+        },
+
+        {
+            "id": 3,
+            "name" : "Mary Goepper Mayer",
+            "age": 56,
+            "gender": "female",
+            "ocupation" : "Nuclear Physicist"
         }
 
     ]
